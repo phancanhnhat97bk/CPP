@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdio>
+#include  <conio.h>
 #include <iomanip>
 #define MAX 3
 using namespace std;
@@ -95,7 +96,7 @@ void Player() {
 		int pl1, pl2;
 	input1: cout << " Your turn " << user1 << "\t-O\t:";
 		cin >> pl1;
-		if (Array[pl1 / 10][pl1 % 10] == 0) {
+		if (Array[pl1 / 10][pl1 % 10] == 0 && pl1/10<MAX && pl1%10<MAX) {
 			Array[pl1 / 10][pl1 % 10] = 1;
 			count++;
 		}
@@ -103,18 +104,19 @@ void Player() {
 			cout << "Wrong, please Enter again!\n";
 			goto input1;
 		}
+		system("cls");
 		Draw();
 		if (CheckCol() == true || CheckDiagonal() == true || CheckDiagonal2() == true || CheckRow() == true) {
 			cout << "Your win... : " << user1;
 			break;
 		}
 		if (count == (MAX*MAX)) {
-
+			cout << "----------Draw---------";
 			break;
 		}
 	input2: cout << " Your turn " << user2 << "\t-X\t:";
 		cin >> pl2;
-		if (Array[pl2 / 10][pl2 % 10] == 0) {
+		if (Array[pl2 / 10][pl2 % 10] == 0 && pl2/10<MAX && pl2%10<MAX) {
 			Array[pl2 / 10][pl2 % 10] = 2;
 			count++;
 		}
@@ -122,6 +124,7 @@ void Player() {
 			cout << "Wrong, please Enter again!\n";
 			goto input2;
 		}
+		system("cls");
 		Draw();
 		if (CheckCol() == true || CheckDiagonal() == true || CheckDiagonal2() == true || CheckRow() == true) {
 			cout << "Your win... : " << user2;
