@@ -21,6 +21,7 @@ float CheckScore();
 void Display(Student * students, int count);
 void SaveToFile(string FileName, Student *students, int count);
 void LoadFromFile(string FileName);
+void Replace(string &str, char to, char by);
 int Process();
 
 
@@ -65,6 +66,17 @@ int Process() {
 	}
 }
 
+void Replace(string &str, char to, char by)
+{
+	for (int i = 0; i < str.length(); i++)
+	{
+		if (str.at(i) == to)
+		{
+			str.at(i) = by;
+		}
+	}
+}
+
 void LoadFromFile(string FileName) {
 	ifstream inFile;
 	inFile.open(FileName);
@@ -79,6 +91,7 @@ void LoadFromFile(string FileName) {
 			inFile >> students.id;
 			inFile >> students.name;
 			inFile >> students.score;
+			Replace(students.name, '_', ' ');
 			cout << left << setw(10) << students.id;
 			cout << left << setw(30) << students.name;
 			cout << left << setw(10) << students.score << endl;
@@ -97,7 +110,9 @@ void SaveToFile(string FileName, Student *students , int count) {
 	if (outFile.is_open()) {
 		outFile << count << endl;
 		for (int i = 0;i < count;i++) {
-			outFile << students[i].id << " " << students[i].name << " " << students[i].score << endl;
+			string name(students[i].name);
+			Replace(name, ' ', '_');
+			outFile << students[i].id << " " << name << " " << students[i].score << endl;
 		}
 		cout << "Save to " << FileName << endl;
 		outFile.close();
