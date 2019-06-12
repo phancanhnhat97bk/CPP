@@ -1,0 +1,4 @@
+﻿  Source.cpp
+d:\github\cpp\struct\struct\source.cpp(71): warning C4018: '<': signed/unsigned mismatch
+  Struct.vcxproj -> D:\GITHUB\CPP\Struct\Debug\Struct.exe
+  Struct.vcxproj -> D:\GITHUB\CPP\Struct\Debug\Struct.pdb (Full PDB)
