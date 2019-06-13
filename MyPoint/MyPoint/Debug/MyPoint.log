@@ -1,0 +1,7 @@
+﻿  Source.cpp
+  MyPonit.cpp
+d:\code gameloft\mypoint\mypoint\myponit.cpp(39): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+d:\code gameloft\mypoint\mypoint\myponit.cpp(40): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+  MyPoint.vcxproj -> D:\Code GameLoft\MyPoint\Debug\MyPoint.exe
+  MyPoint.vcxproj -> D:\Code GameLoft\MyPoint\Debug\MyPoint.pdb (Full PDB)
