@@ -9,7 +9,7 @@ DenGueVirus::DenGueVirus()
 }
 
 DenGueVirus::DenGueVirus(const DenGueVirus* denGueVirus) : MyVirus(denGueVirus) {
-	strcpy(this->protein, denGueVirus->protein);
+	strstr(this->protein, denGueVirus->protein);
 }
 
 DenGueVirus::~DenGueVirus()
@@ -46,5 +46,5 @@ list<MyVirus *> DenGueVirus::DoClone() {
 }
 
 int DenGueVirus::InitResistance(int blood_1, int blood_2) {
-	return rand() % blood_2 + blood_1;
+	return (rand() % (blood_2-blood_1+1) + blood_1);
 }
