@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 
+
 using namespace std;
 
 MyVirus::MyVirus()
@@ -10,7 +11,7 @@ MyVirus::MyVirus()
 	this->m_dna = "";
 	this->m_resistance = 0;
 }
-MyVirus::MyVirus(MyVirus*p) {
+MyVirus::MyVirus(const MyVirus*p) {
 	this->m_dna = p->m_dna;
 	this->m_resistance = p->m_resistance;
  }
@@ -27,10 +28,10 @@ char* MyVirus::GetDNA() {
 	return this-> m_dna;
 }
 
-void MyVirus::SetRes(int resistance) {
+void MyVirus::SetResistance(int resistance) {
 	this->m_resistance = resistance;
 }
-int MyVirus::GetRes() {
+int MyVirus::GetResistance() {
 	return this->m_resistance;
 }
 
@@ -47,4 +48,7 @@ void MyVirus :: LoadADNInformation()  {
 	{
 		cout << "read file error!";
 	}
+}
+int MyVirus :: ReduceResistance(int medicine_resistance){
+	return this->m_resistance -= medicine_resistance;
 }

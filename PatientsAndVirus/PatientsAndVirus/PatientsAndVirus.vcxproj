@@ -146,10 +146,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DenGueVirus.h" />
     <ClInclude Include="FluViRus.h" />
     <ClInclude Include="MyVirus.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DenGueVirus.cpp" />
     <ClCompile Include="FluViRus.cpp" />
     <ClCompile Include="MyVirus.cpp" />
     <ClCompile Include="Source.cpp" />

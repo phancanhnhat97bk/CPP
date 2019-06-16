@@ -7,12 +7,12 @@ private:
 
 public:
 	FluViRus();
-	FluViRus(FluViRus * fluVirus);
+	FluViRus(const FluViRus * fluVirus);
 	~FluViRus();
 
 	void DoBorn() override;
-	/*void DoClone();
-	void DoDie();*/
-	int InitResistance(int m_resistance) override;
+	void DoDie() override;
+	list<MyVirus *> DoClone() override;
+	int InitResistance(int blood_1, int blood_2) override;
 };
 

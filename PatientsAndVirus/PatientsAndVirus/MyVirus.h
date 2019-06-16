@@ -1,4 +1,8 @@
 #pragma once
+#include <list>
+
+using namespace std;
+
 class MyVirus
 {
 private:
@@ -7,17 +11,18 @@ private:
 
 public:
 	MyVirus();
-	MyVirus(MyVirus * myVirus);
+	MyVirus(const MyVirus * myVirus);
 	~MyVirus();
 	void SetDNA(char* dna);
 	char* GetDNA();
-	void SetRes(int resistance);
-	int GetRes();
+	void SetResistance(int resistance);
+	int GetResistance();
 	void LoadADNInformation();
+	int ReduceResistance(int medicine_resistance);
 	virtual void DoBorn() = 0;
-	virtual void DoClone() = 0;
+	virtual list<MyVirus *> DoClone() = 0;
 	virtual void DoDie() = 0;
-	virtual int InitResistance(int m_resistance) = 0;
+	virtual int InitResistance(int blood_1,int blood_2) = 0;
 	
 };
 

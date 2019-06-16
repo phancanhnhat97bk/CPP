@@ -1,36 +1,51 @@
 #include "FluViRus.h"
 #include <cstdlib>
+#include <iostream>
 
 
 
 FluViRus::FluViRus() : MyVirus()
 {
-	this->m_color = 0;
+	this->DoBorn();
 }
 
-FluViRus::FluViRus(FluViRus *fluVirus) : MyVirus(fluVirus)
+FluViRus::FluViRus(const FluViRus *fluVirus) : MyVirus(fluVirus)
 {
 	this->m_color = fluVirus->m_color;
 }
-void FluViRus::DoBorn(){
-	LoadADNInformation();
-	int r = rand() % 2 + 1;
-	if (r == 1) {
-		this->m_color = 0x0000ff;
-	}
-	if (r == 2) {
-		this->m_color = 0xff0000;
-	}
-}
-int FluViRus::InitResistance(int m_resistance) {
-	if (m_color == 0x0000ff) {
-		m_resistance = rand() % 15 + 10;
-	}
-	if (m_color == 0xff0000) {
-		m_resistance = rand() % 20 + 10;
-	}
-	return m_resistance;
-}
+
 FluViRus::~FluViRus()
 {
 }
+
+void FluViRus::DoBorn(){
+	LoadADNInformation();
+	this->m_color = rand() % 2 + 1;
+	if (this->m_color == 1) {
+		std :: cout << "Red virus !";
+		this->SetResistance(InitResistance(10,20));
+	}
+	if (this->m_color == 2) {
+		std::cout << "Blue virus !";
+		this->SetResistance(InitResistance(10,15));
+
+	}
+}
+
+void FluViRus::DoDie() {
+	delete this;
+}
+
+list<MyVirus *> FluViRus:: DoClone() {
+	MyVirus *virus = new FluViRus();
+	list<MyVirus *> CloneVirus;
+	CloneVirus.push_back(virus);
+	return CloneVirus;
+
+}
+
+int FluViRus::InitResistance(int blood_1,int blood_2) {
+	
+	return rand() % blood_2 + blood_1;
+}
+
