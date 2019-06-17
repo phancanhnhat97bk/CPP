@@ -50,5 +50,5 @@ void MyVirus :: LoadADNInformation()  {
 	}
 }
 int MyVirus :: ReduceResistance(int medicine_resistance){
-	return this->m_resistance -= medicine_resistance;
+	return this->m_resistance = this->m_resistance - medicine_resistance;
 }

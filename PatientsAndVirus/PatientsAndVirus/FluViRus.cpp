@@ -19,15 +19,17 @@ FluViRus::~FluViRus()
 }
 
 void FluViRus::DoBorn(){
-	LoadADNInformation();
+	this->LoadADNInformation();
 	this->m_color = rand() % 2 + 1;
 	if (this->m_color == 1) {
-		std :: cout << "Red virus !";
+		std :: cout << "Red virus !" << endl;
 		this->SetResistance(InitResistance(10,20));
+		cout << this->GetResistance() << endl;
 	}
 	if (this->m_color == 2) {
-		std::cout << "Blue virus !";
+		std::cout << "Blue virus !" << endl;
 		this->SetResistance(InitResistance(10,15));
+		cout << this->GetResistance() << endl;
 
 	}
 }
@@ -37,7 +39,7 @@ void FluViRus::DoDie() {
 }
 
 list<MyVirus *> FluViRus:: DoClone() {
-	MyVirus *virus = new FluViRus();
+	MyVirus *virus = new FluViRus(this);
 	list<MyVirus *> CloneVirus;
 	CloneVirus.push_back(virus);
 	return CloneVirus;

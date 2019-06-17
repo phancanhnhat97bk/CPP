@@ -5,7 +5,7 @@ class DenGueVirus : public MyVirus
 {
 
 private:
-	char * protein;
+	char m_protein[4];
 public:
 	DenGueVirus();
 	DenGueVirus(const DenGueVirus *denGueVirus);

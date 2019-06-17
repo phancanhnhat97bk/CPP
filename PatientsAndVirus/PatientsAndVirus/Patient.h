@@ -17,8 +17,10 @@ public:
 	~Patient();
 	int InitResistance(int blood_1, int blood_2);
 	void DoStart();
-	void TakeMedicine();
-	int ReduceResistance();
+	void TakeMedicine(int medicine_resistance);
+	void DoDie();
+	int GetState();
+	int Total_Resistance_Virus();
 	
 };
 
