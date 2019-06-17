@@ -1,6 +1,7 @@
 #include "DenGueVirus.h"
 #include <iostream>
 
+
 using namespace std;
 
 DenGueVirus::DenGueVirus()

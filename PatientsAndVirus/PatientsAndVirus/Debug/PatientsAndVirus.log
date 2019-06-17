@@ -1,3 +1,4 @@
 ﻿  Source.cpp
+d:\github\cpp\patientsandvirus\patientsandvirus\source.cpp(13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   PatientsAndVirus.vcxproj -> D:\GITHUB\CPP\PatientsAndVirus\Debug\PatientsAndVirus.exe
   PatientsAndVirus.vcxproj -> D:\GITHUB\CPP\PatientsAndVirus\Debug\PatientsAndVirus.pdb (Full PDB)

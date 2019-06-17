@@ -4,6 +4,7 @@
 
 
 
+
 FluViRus::FluViRus() : MyVirus()
 {
 	this->DoBorn();
@@ -47,7 +48,7 @@ list<MyVirus *> FluViRus:: DoClone() {
 }
 
 int FluViRus::InitResistance(int blood_1,int blood_2) {
-	
+
 	return rand() % (blood_2 - blood_1 +1) + blood_1;
 }
 

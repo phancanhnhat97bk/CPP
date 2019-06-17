@@ -1,5 +1,8 @@
 #include "Patient.h"
 #include <iostream>
+#include <ctime>
+#include <Windows.h>
+
 
 using namespace std;
 
@@ -7,7 +10,7 @@ using namespace std;
 
 Patient::Patient()
 {
-	this->m_resistance = InitResistance(1000, 9000);
+	this->m_resistance = InitResistance(1000, 4000);
 	DoStart();
 }
 
@@ -19,13 +22,16 @@ Patient::~Patient()
 
 
 int Patient::InitResistance(int blood_1, int blood_2) {
+	srand(time(0));
 	return rand() % (blood_2 - blood_1 + 1) + blood_1;
 }
 
 void Patient::DoStart() {
 	this->m_state = 1;
+	srand(time(0));
 	int rand_amount = rand() % (20 - 10 + 1) + 10;
 	for (int i = 0;i < rand_amount;i++) {
+		Sleep(500);
 		int rand_species = rand() % 2 + 1;
 		if (rand_species == 1) {
 			MyVirus * fluVirut = new FluViRus();
@@ -39,6 +45,7 @@ void Patient::DoStart() {
 }
 void Patient::TakeMedicine(int  medicine_resistance) {
 	cout << "Resistance Patient : " << this->m_resistance << endl;
+	cout << "Total virus : " << this->m_virusList.size() << endl;
 	cout << "Total Resistance Virus : " << this->Total_Resistance_Virus() << endl;
 	if (this->m_virusList.empty() == true) {
 		cout << "Clear virus in patient!" << endl;
