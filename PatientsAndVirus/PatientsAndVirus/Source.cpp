@@ -3,6 +3,7 @@
 #include <iostream>
 #include <ctime>
 #include "Patient.h"
+#include <vld.h>
 
 using namespace std;
 
@@ -18,7 +19,7 @@ int main()
 		if (t == 1)
 		{
 			int min = 1;
-			int max = 5;
+			int max = 10;
 			int medicine_resistance = min + (rand() % (int)(max - min + 1));
 			
 				p.TakeMedicine(medicine_resistance);

@@ -17,6 +17,7 @@ Patient::Patient()
 
 Patient::~Patient()
 {
+
 }
 
 
@@ -54,7 +55,7 @@ void Patient::TakeMedicine(int  medicine_resistance) {
 	else
 	{
 		if (this->Total_Resistance_Virus() < this->m_resistance) {
-			for (list<MyVirus *>::iterator it = m_virusList.begin();it != m_virusList.end();) {
+			for (list<MyVirus *>::iterator it = m_virusList.begin();it != m_virusList.end();) {	
 				if((*it)->ReduceResistance(medicine_resistance) > 0) {
 					list<MyVirus *> list = (*it)->DoClone();
 					m_virusList.insert(m_virusList.begin(), list.begin(), list.end());
@@ -62,14 +63,22 @@ void Patient::TakeMedicine(int  medicine_resistance) {
 				}
 				else
 				{
+					MyVirus *p = *it;
 					it = m_virusList.erase(it);
-			
+					if (p != nullptr) {
+						delete p;
+						p = nullptr;
+					}
 				}
 			}
 		}
 		else {
-			this->DoDie();
+			
 			cout << "Patient die!" << endl;
+			for (list<MyVirus *>::iterator it = m_virusList.begin();it != m_virusList.end();it++) {
+				delete *it;
+			}
+			this->DoDie();
 		}
 	}
 }

@@ -5,7 +5,7 @@ using namespace std;
 
 class MyVirus
 {
-private:
+protected:
 	char * m_dna;
 	int m_resistance;
 

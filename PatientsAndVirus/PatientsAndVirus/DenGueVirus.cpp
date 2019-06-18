@@ -15,6 +15,7 @@ DenGueVirus::DenGueVirus(const DenGueVirus* denGueVirus) : MyVirus(denGueVirus) 
 
 DenGueVirus::~DenGueVirus()
 {
+
 }
 void DenGueVirus::DoBorn() {
 	this->LoadADNInformation();
@@ -40,13 +41,14 @@ void DenGueVirus::DoBorn() {
 	
 }
 void DenGueVirus::DoDie() {
-	delete this;
+	delete[] this->m_dna;
 }
 list<MyVirus *> DenGueVirus::DoClone() {
-	MyVirus * virus = new DenGueVirus(this);
+	MyVirus * virus_1 = new DenGueVirus(this);
+	MyVirus * virus_2 = new DenGueVirus(this);
 	list<MyVirus *> CloneVirus;
-	CloneVirus.push_back(virus);
-	CloneVirus.push_back(virus);
+	CloneVirus.push_back(virus_1);
+	CloneVirus.push_back(virus_2);
 	return CloneVirus;
 }
 

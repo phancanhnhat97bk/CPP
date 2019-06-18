@@ -36,7 +36,7 @@ void FluViRus::DoBorn(){
 }
 
 void FluViRus::DoDie() {
-	delete this;
+	delete [] this->m_dna;
 }
 
 list<MyVirus *> FluViRus:: DoClone() {
